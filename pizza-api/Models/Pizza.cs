@@ -1,8 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace pizza_api.Models
 {
-    public class Pizza
+    public class Pizza : IEquatable<Pizza>
     {
         public string Name { get; set; }
         public string Description { get; set; }
@@ -10,5 +11,10 @@ namespace pizza_api.Models
         public string Size { get; set; }
         public int Slices { get; set; }
         public bool HasExtraCheese { get; set; }
+
+        public bool Equals(Pizza other)
+        {
+            return Name.Equals(other.Name);
+        }
     }
 }
