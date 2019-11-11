@@ -3,6 +3,8 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Options;
+using pizza_api.Services;
 
 namespace pizza_api
 {
@@ -18,6 +20,8 @@ namespace pizza_api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.Configure<PizzasDatabaseSettings>(Configuration.GetSection(nameof(PizzasDatabaseSettings)));
+            services.AddSingleton(sp => sp.GetRequiredService<IOptions<PizzasDatabaseSettings>>().Value);
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 
