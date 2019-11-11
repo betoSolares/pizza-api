@@ -22,6 +22,7 @@ namespace pizza_api
         {
             services.Configure<PizzasDatabaseSettings>(Configuration.GetSection(nameof(PizzasDatabaseSettings)));
             services.AddSingleton(sp => sp.GetRequiredService<IOptions<PizzasDatabaseSettings>>().Value);
+            services.AddSingleton<PizzaService>();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 
