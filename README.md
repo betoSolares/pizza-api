@@ -6,7 +6,7 @@ Aplicación CRUD para un restaurante de pizzas con conexión a MongoDB. La API p
 
 El punto final /api/mongo con un verbo `POST` espera un JSON con la siguiente estructura:
 
-```json
+```javascript
 {
     "Name": "Pizza name",
     "Description": "Pizza description",
@@ -31,7 +31,7 @@ Existen dos formas de obtener una pizza, las dos utilizan verbo `GET`:
 
 El punto final /api/mongo/{name} con un verbo `PUT` espera un JSON con la siguiente estructura:
 
-```json
+```javascript
 {
     "Name": "Pizza name",
     "Description": "Pizza description",
